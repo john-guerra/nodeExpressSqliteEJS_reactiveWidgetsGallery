@@ -1,0 +1,48 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("title").value = "Sample Widget";
+    document.getElementById("url").value = "https://example.com";
+    document.getElementById("author").value = "John Doe";
+    document.getElementById("sourceCode").value = "https://github.com/example/repo";
+    document.getElementById("image").value = "https://example.com/image.png";
+  });
+</script>
+<!-- views/widget-form.ejs -->
+<h2>Create a new Widget</h2>
+<form action="/api/widgets/create" method="POST" class="mb-4">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title:</label>
+    <input type="text" id="title" name="title" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label for="url" class="form-label">URL:</label>
+    <input type="url" id="url" name="url" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label for="author" class="form-label">Author:</label>
+    <input
+      type="text"
+      id="author"
+      name="author"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="sourceCode" class="form-label">Source Code:</label>
+    <input
+      type="url"
+      id="sourceCode"
+      name="sourceCode"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Image URL:</label>
+    <input type="url" id="image" name="image" class="form-control" required />
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Add Widget</button>
+  </div>
+</form>

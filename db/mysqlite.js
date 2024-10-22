@@ -3,7 +3,7 @@ import { open } from 'sqlite';
 
 // Open the database
 const dbPromise = open({
-  filename: './database.sqlite',
+  filename: './db/database.sqlite',
   driver: sqlite3.Database
 });
 
@@ -39,6 +39,12 @@ export async function createWidget(widget) {
 export async function readWidget(id) {
   const db = await dbPromise;
   return db.get(`SELECT * FROM widgets WHERE id = ?`, [id]);
+}
+
+// Read all widgets
+export async function getAllWidgets() {
+  const db = await dbPromise;
+  return db.all(`SELECT * FROM widgets`);
 }
 
 // Update a widget by ID
